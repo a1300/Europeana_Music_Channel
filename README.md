@@ -1,14 +1,18 @@
-my first push
+Europeana Music Channel 
+------------
 
-here are information how to to design a README-markup [link](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+Ways to design this [README](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-e.g
-Heading 1
-======
-
-
-Reference-style: 
+Some Logo 
 ![alt text][logo]
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+
+| Name            | Function     |
+| --------------- |:------------:|
+| Sergiu Gordea   | Supervisor   |
+| Richi Arangüena | Teammember   |
+| Umair Altaf     | Teammember   |
+| Matthias Knopp  | Teammember   | 
 
