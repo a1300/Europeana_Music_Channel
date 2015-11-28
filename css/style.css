@@ -95,3 +95,9 @@ header ul li a {
 html {
 	background-color: #8181F7;
 }
+
+/* for leaflet container (map) */
+#map {
+	height : 350px;
+}
+

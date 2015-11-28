@@ -10,6 +10,14 @@
 	
 	<link rel="Stylesheet" href="css/reset.css">
 	<link rel="Stylesheet" href="css/style.css">
+
+	<!-- For Leaflet Library -->
+	<link rel="stylesheet" href="javascript/leaflet-library/leaflet.css" />
+	<script src="javascript/leaflet-library/leaflet.js"></script>
+
+	<!-- MapQuest -->
+	<script src="http://www.mapquestapi.com/sdk/leaflet/v2.s/mq-map.js?key=GJ4oEUANXFZA0H8iCyzUzCVA1I3yAzPo"></script>
+
 </head>
 
 <body>
@@ -80,6 +88,30 @@
 				});
 	</script>
 	
+
+
+	<div id="map">
+		
+	</div>
+	
+	<script>
+		window.onload = function() {
+			L.map('map', {
+			layers: MQ.mapLayer(),
+			center: [ 40.731701, -73.993411 ],
+			zoom: 12
+			});
+		};
+
+		L.control.layers({
+	        'Map': mapLayer,
+		    'Dark': MQ.darkLayer(),
+		    'Light': MQ.lightLayer(),
+			'Satellite': MQ.satelliteLayer()
+		}).addTo(map);
+
+	</script>
+
 	<aside>
 	<h3> Ergaenzender Inhalte</h3>
 	<p>Hier stehen zusaetzliche Infos.</p>	
