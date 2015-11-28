@@ -20,8 +20,14 @@
 	<link rel="stylesheet" href="javascript/leaflet-library/leaflet.css" />
 	<script src="javascript/leaflet-library/leaflet.js"></script>
 
-	<!-- MapQuest -->
+	<!-- MapQuest online API -->
 	<script src="http://www.mapquestapi.com/sdk/leaflet/v2.s/mq-map.js?key=GJ4oEUANXFZA0H8iCyzUzCVA1I3yAzPo"></script>
+
+	<!-- Heatmap Library -->
+	<script src="javascript/heatmap.js"></script>
+
+	<!-- LeafPad-Heatmap Library, this should be right under heatmap.js -->
+	<script src="javascript/leafpad-heatmap.js"></script>
 
 </head>
 
@@ -104,6 +110,11 @@
 	<h3>Results</h3>
 	<ul id="meineListe">
 	</ul>
+
+	<script>
+		// here comes leafpad heatmap	
+	</script>
+
 
 	<script>
 		$.getJSON( "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=Folklore&start=1&rows=24&profile=standard", function( data ) {
