@@ -73,22 +73,30 @@
 	</div>
 	
 	<script>
-		window.onload = function() {
+	/*	window.onload = function() {
 			L.map('map', {
 			layers: MQ.mapLayer(),
 			center: [ 49.5196530, 10.3728780 ], /* 40.731701, -73.993411*/
-			zoom: 5 
-			});
-		};
+	//		zoom: 5 
+	//		});
+	//	}; */
 
-		//var marker = L.marker([51.5, -0.09]).addTo(map);
+	var mapLayer = MQ.mapLayer(), map;
 
-		L.control.layers({
-	        'Map': mapLayer,
-		    'Dark': MQ.darkLayer(),
-		    'Light': MQ.lightLayer(),
-			'Satellite': MQ.satelliteLayer()
-		}).addTo(map);
+	map = L.map('map', {
+	    layers: mapLayer,
+		center: [ 40.731701, -73.993411 ],
+		zoom: 12
+	});
+
+	L.control.layers({
+		'Map': mapLayer,
+		'Dark': MQ.darkLayer(),
+		'Light': MQ.lightLayer(),
+		'Satellite': MQ.satelliteLayer()
+	}).addTo(map);
+
+	var marker = L.marker([40.731701, -73.993411]).addTo(map);
 
 	</script>
 
