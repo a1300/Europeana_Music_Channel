@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Europeana Music Channel 
 ------------
 
@@ -19,3 +20,6 @@ Some Logo
 | Umair Altaf     | Teammember   |
 | Matthias Knopp  | Teammember   | 
 
+=======
+# Europeana_Music_Channel
+>>>>>>> 4b304acee918fb650caf7c6a2b008eeb45e7c8ae
