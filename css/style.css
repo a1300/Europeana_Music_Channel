@@ -16,6 +16,7 @@ body {
 	font-size: 0.875rem;
 	background: black url(grafiken/background.jpg) 0 0 repeat-x;
 	margin: 1rem auto;
+	color: black;
 }
 /* Layoutbereich */
 header{
