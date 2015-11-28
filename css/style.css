@@ -83,4 +83,14 @@ nav#metanav li:last-of-type{
 	padding-left: 1rem;
 }
 
-	
+/* added */
+header ul li a {
+	color: white;
+	border: solid white  0.5px;
+	padding: 3px;
+	margin: 1px;
+}
+
+html {
+	background-color: #8181F7;
+}
