@@ -62,36 +62,9 @@
 	</nav>
 	</header>
 	<main>
-	<h2>Der Hauptinhalt</h2>
-	<p>hier kommen verschiedene Inhalte hin.</p>
+	<h2>Content</h2>
 	
-	<h3>Results</h3>
-		<ul id="meineListe">
-			<li><a href="#">text1</a></li>
-			<li><a href="#">text2</a></li>
-			<li><a href="#">text3</a></li>
-		</ul>
-	
-	<script>
-				$.getJSON( "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=Folklore&start=1&rows=24&profile=standard", function( data ) {
-					var items = [];
-					console.log(data);
-					if (data.success){
-						$.each(data.items, function() {
-							$("#meineListe").append("<li>" +this.title+"</li>");
-						});
-					}
-					else{
-						$('#meineListe')
-					}
-									
-				});
-	</script>
-	
-
-
 	<div id="map">
-		
 	</div>
 	
 	<script>
@@ -112,13 +85,31 @@
 
 	</script>
 
+
+	<h3>Results</h3>
+	<ul id="meineListe">
+	</ul>
+
+	<script>
+		$.getJSON( "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=Folklore&start=1&rows=24&profile=standard", function( data ) {
+			var items = [];
+			console.log(data);
+			if (data.success){
+				$.each(data.items, function() {
+					$("#meineListe").append("<li>" +this.title+"</li>");
+				});
+			} else {
+				$('#meineListe')
+			}
+		});
+	</script>
+	
 	<aside>
-	<h3> Ergaenzender Inhalte</h3>
-	<p>Hier stehen zusaetzliche Infos.</p>	
 	</aside>
+
 	</main>
 	<footer>
-	<p>Copyright und andere Informationen ueber diese Seit</p>
+	<p>Copyright and further information</p>
 	</footer>
 </body>
 </html>
