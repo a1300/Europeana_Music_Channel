@@ -41,19 +41,18 @@
 	<nav id="sitenav">
 	<h2>Sitenavigation</h2>
 		<ul>
-			<li><a href="#">Gratis Video</a></li>
-			<li><a href="#">Abonnieren</a></li>
-			<li><a href="#">Trainings</a></li>
-			<li><a href="#">Trainer</a></li>
+			<li><a href="#">Heatmap</a></li>
+			<li><a href="#">Events</a></li>
+			<li><a href="#">Copyright Information</a></li>
+	<!--	<li><a href="#">Trainer</a></li>
 			<li><a href="#">Loesungen</a></li>
 			<li><a href="#">Support</a></li>
 			<li><a href="#">News</a></li>
-			<li><a href="#">Apps</a></li>
+			<li><a href="#">Apps</a></li> -->
 		</ul>
 		
 		<ul>
-			<li> <a href="#">Einloggen</a> </li>
-		
+			<li> <a href="#">Log In</a> </li>
 		</ul>
 		
 	</nav>
@@ -61,12 +60,13 @@
 	<h2>Metanavigation</h2>
 		<ul>
 			<li><a href="#">International</a></li>
-			<li><a href="#">Registrieren</a></li>
-			<li><a href="#">Warenkorb</a></li>
+			<li><a href="#">Register</a></li>
+			<li><a href="#">Basket</a></li>
 		</ul>
 	</nav>
 	</header>
 	<main>
+
 	<h2>Content</h2>
 	
 	<div id="map">
@@ -76,10 +76,12 @@
 		window.onload = function() {
 			L.map('map', {
 			layers: MQ.mapLayer(),
-			center: [ 40.731701, -73.993411 ],
-			zoom: 12
+			center: [ 49.5196530, 10.3728780 ], /* 40.731701, -73.993411*/
+			zoom: 5 
 			});
 		};
+
+		//var marker = L.marker([51.5, -0.09]).addTo(map);
 
 		L.control.layers({
 	        'Map': mapLayer,
