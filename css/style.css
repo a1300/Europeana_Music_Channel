@@ -1,20 +1,20 @@
 /* Video2Brain HTML for Designer */
 
 header, nav, main, aside, footer{
-	display; block;	
+	display: block;	
 }
 
 html {
 	font-size: 100%;
 	font-family: Verdana, sans-serif;
 }
-head.bildHeader{
+/*head.bildHeader{
 	position: center;
-}
+} */
 body {
 	width: 960px;
 	font-size: 0.875rem;
-	background: black url(grafiken/background.jpg) 0 0 repeat-x;
+	background: #9999ff /* url(../images/background.jpg) 0 0 repeat-x*/;
 	margin: 1rem auto;
 	color: black;
 }
@@ -26,7 +26,7 @@ header{
 header h1 {
 	
 	position: center;
-	pedding: 0;
+	padding: 0;
 	margin: 0.75rem 0;
 }
 header a {
@@ -92,12 +92,13 @@ header ul li a {
 	margin: 1px;
 }
 
-html {
-	background-color: #8181F7;
-}
 
 /* for leaflet container (map) */
 #map {
-	height : 350px;
+	height: 350px;
+    width: 80%;
 }
 
+html {
+    background: #9999ff;
+}
