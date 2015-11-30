@@ -8,13 +8,11 @@ html {
 	font-size: 100%;
 	font-family: Verdana, sans-serif;
 }
-/*head.bildHeader{
-	position: center;
-} */
+
 body {
-	width: 960px;
+	width: 1000px;
 	font-size: 0.875rem;
-	background: #9999ff /* url(../images/background.jpg) 0 0 repeat-x*/;
+	background: url(images/Note-lines-vector/Note_lines_2.png);
 	margin: 1rem auto;
 	color: black;
 }
@@ -42,7 +40,8 @@ nav ul {
 }
 main {
 	min-height: 500px;
-	background: white;
+	background: grey;
+	opacity: 0.940;
 	padding: 2rem;
 }
 /*Sitenavigation*/
@@ -97,8 +96,11 @@ header ul li a {
 #map {
 	height: 350px;
     width: 80%;
+    margin-left:10%;
 }
 
-html {
-    background: #9999ff;
+
+
+#footerText{
+    text-align: center;
 }
