@@ -80,11 +80,11 @@
     
         //test
         var testData = {
-            max: 8, //was soll das?
-            data: [ { lat: 24.6408, lng: 46.7728, count: 3 },
-                    { lat: 50.75, lng: -1.55, count: 1 },
-                    { lat: 50.26, lng: -1.79, count: 1 },
-                    { lat: 50.45, lng: -1.89, count: 1 }
+            max: 8, //what???
+            data: [{ lat: 55.00, lng: +8.0, count: 2 },
+                { lat: 53.00, lng: -3.0, count: 3 },
+                { lat: 48.00, lng: +8.0, count: 7}
+
         ]};
 
         var cfg = {
@@ -112,8 +112,8 @@
 
 	    map = L.map('map', {
 	        layers: [mapLayer, heatmapLayer],
-		    center: [ 40.731701, -73.993411 ],
-		    zoom: 2
+		    center: [ 50.731701, -1.993411 ],
+		    zoom: 4
 	    });
 
 	    heatmapLayer.setData(testData);
