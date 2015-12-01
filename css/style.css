@@ -12,7 +12,7 @@ html {
 body {
 	width: 1000px;
 	font-size: 0.875rem;
-	background: url(images/Note-lines-vector/Note_lines_2.png);
+	background: url(../images/Note-lines-vector/Note_lines_2.png);
 	margin: 1rem auto;
 	color: black;
 }
@@ -22,8 +22,7 @@ header{
 	padding: 0 2rem 1rem 2rem;	
 }
 header h1 {
-	
-	position: center;
+	position: fixed;
 	padding: 0;
 	margin: 0.75rem 0;
 }
@@ -48,7 +47,7 @@ main {
 nav#sitenav ul:first-of-type li{
 	color: white;
 	display: inline-block;
-	margin right: 1rem;
+	margin-right: 1rem;
 	margin-bottom: 0.5rem;
 }
 nav#sitenav ul:last-of-type {
@@ -72,14 +71,14 @@ nav#metanav li{
 	display: inline-block;
 	font-size: 0.75rem;
 	color: #ccc;
-	margin-right: 0.5;
+	margin-right: 0.5cm;
 }
 nav#metanav li:first-of-type{
-	background: url(grafiken/international.png) left 0 no-repeat;
+	background: url(../images/international.png) left 0 no-repeat;
 	padding-left: 1rem;
 }
 nav#metanav li:last-of-type{
-	background: url(grafiken/warenkorb.png) left 0 no-repeat;
+	background: url(../images/warenkorb.png) left 0 no-repeat;
 	padding-left: 1rem;
 }
 
