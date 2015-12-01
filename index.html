@@ -108,7 +108,7 @@
         var heatmapLayer = new HeatmapOverlay(cfg);
 
 
-	    var mapLayer = MQ.mapLayer(), map;
+	    var mapLayer = MQ.darkLayer(), map;
 
 	    map = L.map('map', {
 	        layers: [mapLayer, heatmapLayer],
@@ -119,8 +119,8 @@
 	    heatmapLayer.setData(testData);
 
 	    L.control.layers({
-		    'Map': mapLayer,
-		    'Dark': MQ.darkLayer(),
+		    'Dark': mapLayer,
+		    'Map': MQ.mapLayer(),
 		    'Light': MQ.lightLayer(),
 		    'Satellite': MQ.satelliteLayer()
 	    }).addTo(map);
