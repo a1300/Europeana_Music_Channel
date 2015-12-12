@@ -61,11 +61,26 @@
 	
 	<main>
 
-
-
-
 <p> results to the song : <?php echo $_POST["song"]; ?>
 </p>
+
+var = <?php $_POST["song"]; ?> ;
+
+<script>
+		$.getJSON( "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query="+var+"&start=1&rows=24&profile=standard", function( data ) {
+			var items = [];
+			console.log(data);
+			if (data.success){
+				$.each(data.items, function() {
+					$("#meineListe").append("<li>" +this.title+"</li>");
+				});
+			} else {
+				$('#meineListe')
+			}
+		});
+	</script>
+	
+
 	</main>
 
 	<footer id="footerText">
