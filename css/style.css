@@ -22,7 +22,7 @@ body {
 /* Layoutbereich */
 header{
 	position: relative;
-	padding: 0 2rem 1rem 2rem;	
+	padding: 0 2rem 1rem 2rem;
 }
 header h1 {
 	position: fixed;
@@ -34,7 +34,11 @@ header a {
 	text-decoration: none;
 }
 nav {position: relative;}
-nav h2 {display: none;}
+nav h2 {
+	display: none;
+	color: black;
+
+}
 nav ul {
 	list-style: none;
 	padding: 0;
@@ -48,7 +52,7 @@ main {
 }
 /*Sitenavigation*/
 nav#sitenav ul:first-of-type li{
-	color: white;
+	color: black;
 	display: inline-block;
 	margin-right: 1rem;
 	margin-bottom: 0.5rem;
@@ -62,6 +66,11 @@ nav#sitenav ul:last-of-type {
 	padding: 0.5rem;
 	border-radius: 0.5rem;
 	margin: 0;	
+}
+#searchbar{
+	position: middle;	
+	display: inline-block;
+	height: 50px;
 }
 /*Metanavigation
 nav#metanav{
