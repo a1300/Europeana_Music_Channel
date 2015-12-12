@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<?php
+
 <html lang="de">
 <head>
 	<script src="javascript/jquery-1.9.1.js"></script>
@@ -89,3 +90,4 @@ var = <?php $_POST["song"]; ?> ;
 	</footer>
 	</body>
 </html>
+?>
