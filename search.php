@@ -1,4 +1,4 @@
-﻿<!DOCTYPE php>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
 	<script src="javascript/jquery-1.9.1.js"></script>
@@ -64,8 +64,8 @@
 
 
 
-<php results to the song : <?php echo $_POST["song"]; ?>
-
+<p> results to the song : <?php echo $_POST["song"]; ?>
+</p>
 	</main>
 
 	<footer id="footerText">
