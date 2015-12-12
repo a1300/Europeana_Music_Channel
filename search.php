@@ -46,7 +46,7 @@
 		<h2>Sitenavigation</h2>
 			<ul>
 				<li><a href="Home.html">		Home</a></li>
-				<li><a href="search.html">	search	</a></li>
+				<li><a href="search.html">		search	</a></li>
 				<li><a href="heatmap.html">		Heatmap</a></li>
 				<li><a href="results.html">		Results</a></li>
 				<li><a href="copyright.html">	Copyright Information</a></li>
@@ -62,12 +62,9 @@
 	<main>
 
 
-<form action="search.php" method="post">
-Song to search: <input style="color:grey;" type="text" name="song"><br>
-<input type="submit">
-</form>
 
 
+<php results to the song : <?php echo $_POST["song"]; ?>
 
 	</main>
 
