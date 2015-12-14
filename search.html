@@ -61,25 +61,29 @@
 	
 <main>
 
-<!--
-<form action="search.php" method="post">
-Song to search: <input style="color:grey;" type="text" name="song"><br>
-<input type="submit">
-</form> -->
-
 <form>
     <div class="single-field">
         <label for="Name">Name:</label>
         <input class="myInput" name="Name" type="text" style=" color: black"/>
     </div>
-    <button class="myButton">Search</button>
+    <button type="submit" class="myButton">Search</button>
+    
+    <br />
+    <br />
+    <input type="radio" name="group1" value="Title">Title<br>
+    <input type="radio" name="group1" value="Royalte Free">Royalte Free<br>
+
 </form>
 
 <script>
     $(document).ready(function(){
         $('body').on("click", ".myButton", function () {
-            alert($('.myInput').val());
+            if($('.myInput').val() != ""){
+                alert($('.myInput').val() + " Searching...");
+            }
         });
+
+
     });
 </script>
 
