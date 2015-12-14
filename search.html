@@ -59,16 +59,31 @@
 
 	
 	
-	<main>
+<main>
 
-
+<!--
 <form action="search.php" method="post">
 Song to search: <input style="color:grey;" type="text" name="song"><br>
 <input type="submit">
+</form> -->
+
+<form>
+    <div class="single-field">
+        <label for="Name">Name:</label>
+        <input class="myInput" name="Name" type="text" style=" color: black"/>
+    </div>
+    <button class="myButton">Search</button>
 </form>
 
+<script>
+    $(document).ready(function(){
+        $('body').on("click", ".myButton", function () {
+            alert($('.myInput').val());
+        });
+    });
+</script>
 
-	</main>
+</main>
 
 	<footer id="footerText">
 		<p>Universität Wien - Fakultät für Informatik - © 2015 - 2016</p>
