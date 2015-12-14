@@ -36,72 +36,101 @@
 </head>
 
 <body>
-	<a href="home.html" title="Zur Startseite">
-		<img style="margin-left:180px;" src="images/logo3.png"  alt="Europeana Music Channel">
-	</a>
+    <a href="home.html" title="Zur Startseite">
+        <img style="margin-left:180px;" src="images/logo3.png" alt="Europeana Music Channel">
+    </a>
 
-	<header>
-		
-		<nav id="sitenav">
-		<h2>Sitenavigation</h2>
-			<ul>
-				<li><a href="Home.html">		Home</a></li>
-				<li><a href="search.html">	search	</a></li>
-				<li><a href="heatmap.html">		Heatmap</a></li>
-				<li><a href="results.html">		Results</a></li>
-				<li><a href="copyright.html">	Copyright Information</a></li>
-				<li><a href="resources.html">	resources</a></li>
-				
-			</ul>
-		
-		</nav>
-	</header>
+    <header>
 
-	
-	
-<main>
+        <nav id="sitenav">
+            <h2>Sitenavigation</h2>
+            <ul>
+                <li><a href="Home.html">		Home</a></li>
+                <li><a href="search.html">	search	</a></li>
+                <li><a href="heatmap.html">		Heatmap</a></li>
+                <li><a href="results.html">		Results</a></li>
+                <li><a href="copyright.html">	Copyright Information</a></li>
+                <li><a href="resources.html">	resources</a></li>
 
-<form>
-    <div class="single-field">
-        <label for="Name">Name:</label>
-        <input class="myInput" name="Name" type="text" style=" color: black"/>
-    </div>
-    <button type="submit" class="myButton">Search</button>
-    
-    <br />
-    <br />
-    <input type="radio" name="group1" value="Title" checked="checked" >Title<br>
-    <input type="radio" name="group1" value="Royalty Free">Royalty Free<br>
-    <input type="radio" name="group1" value="Genre">Genre<br>
-</form>
+            </ul>
 
-<script>
-    $(document).ready(function () {
+        </nav>
+    </header>
 
-        $('body').on("click", ".myButton", function () {
 
-            switch($('[type="radio"]:checked').val()) {
-                case "Title":
-                    alert("Switch title");
-                    break;
-                case "Royalty Free":
-                    alert("Switch Royalty Free title");
-                    break;
-                case "Genre":
-                    alert("Switch Genre");
-                default:
-                    //normal search without specification
-            } 
-        });
 
-    });
-</script>
+    <main>
 
-</main>
+        
+        
+        <form>
+            <div class="single-field">
+                <label for="Name">Name:</label>
+                <input class="myInput" name="Name" type="text" style=" color: black" />
+            </div>
+            <button type="button" class="myButton">Search</button>
 
-	<footer id="footerText">
-		<p>Universität Wien - Fakultät für Informatik - © 2015 - 2016</p>
-		<p>Matthias Knopp, Ricardo Arangüena, Umair Altaf</p>
-	</footer>
-	</body>
+            <br />
+            <br />
+            <input type="radio" name="group1" value="Title" checked="checked">Title<br>
+            <input type="radio" name="group1" value="Royalty Free">Royalty Free<br>
+            <input type="radio" name="group1" value="Genre">Genre<br>
+        </form>
+
+        <h3>Results</h3>
+        <ul id="meineListe2"></ul>
+
+
+
+        <script>
+            $(document).ready(function () {
+
+            
+
+                $('body').on("click", ".myButton", function () {
+
+                    switch ($('[type="radio"]:checked').val()) {
+                        case "Title":
+                            if ($('.myInput').val() != "") {
+                                console.log("juhu");
+                                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
+                                var queryString = $('.myInput').val();
+                                var endString = "&start=1&rows=10&profile=standard";
+                                $.getJSON(startString + queryString + endString, function (data) {
+                                    var items = [];
+                                    console.log(data);
+                                    if (data.success) {
+                                        $.each(data.items, function () {
+                                            $("#meineListe2").append("<li>" + this.title + "</li>");
+                                        });
+                                    } else {
+
+                                    }
+                                });
+                            }
+                            break;
+                        case "Royalty Free":
+                            if ($('.myInput').val() != "") {
+                                alert("Switch Royalty Free title");
+                            }
+                            break;
+                        case "Genre":
+                            if ($('.myInput').val() != "") {
+                                alert("Switch Genre");
+                            }
+                        default:
+                            //normal search without specification
+                    }
+                });
+
+            });
+        </script>
+
+    </main>
+
+    <footer id="footerText">
+        <p>Universität Wien - Fakultät für Informatik - © 2015 - 2016</p>
+        <p>Matthias Knopp, Ricardo Arangüena, Umair Altaf</p>
+    </footer>
+</body>
 </html>
