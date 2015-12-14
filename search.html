@@ -92,7 +92,8 @@
                     switch ($('[type="radio"]:checked').val()) {
                         case "Title":
                             if ($('.myInput').val() != "") {
-                                console.log("juhu");
+                                
+                                console.log($('.myInput').val());
                                 var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
                                 var queryString = $('.myInput').val();
                                 var endString = "&start=1&rows=10&profile=standard";
@@ -107,16 +108,20 @@
 
                                     }
                                 });
+                                
+                                //setting input form to ""
+                                $('.myInput').val("");
                             }
                             break;
                         case "Royalty Free":
                             if ($('.myInput').val() != "") {
-                                alert("Switch Royalty Free title");
+                                
                             }
                             break;
                         case "Genre":
                             if ($('.myInput').val() != "") {
-                                alert("Switch Genre");
+                                
+                                
                             }
                         default:
                             //normal search without specification
