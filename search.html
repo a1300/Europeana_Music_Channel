@@ -55,6 +55,15 @@
             </ul>
 
         </nav>
+
+        <style>
+            body div {
+                border: white 0.5px solid;
+                margin: 10px;
+                border-radius: 2px;
+                padding: 3px;
+            }
+        </style>
     </header>
 
 
@@ -111,7 +120,7 @@
                                     console.log(data);
                                     if (data.success) {
                                         $.each(data.items, function () {
-                                            $("#meineListe2").append("<li>" + this.title + "</li>");
+                                            $("#meineListe2").append("<div>" + this.title + "</div>");
                                         });
                                     } else {
 
