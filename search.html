@@ -66,7 +66,7 @@
         <form>
             <div class="single-field">
                 <label for="Name">Name:</label>
-                <input class="myInput" name="Name" type="text" style=" color: black" />
+                <input id="inputText" class="myInput" name="Name" type="text" style=" color: black" />
             </div>
             <button type="button" class="myButton">Search</button>
 
@@ -85,7 +85,19 @@
         <script>
             $(document).ready(function () {
 
+<<<<<<< HEAD
                 
+=======
+            	$("#inputText").focus(function(){
+    				    $(this).css("background-color", "#cccccc");
+  				});
+  				$("inputText").blur(function(){
+       					 $(this).css("background-color", "#ffffff");
+    			});
+  				  
+  				  
+  				  
+>>>>>>> 3a9476982aa9128fc8d37273fb61a87518923edc
 
                 $('body').on("click", ".myButton", function () {
 
