@@ -105,7 +105,7 @@
                                 var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
                                 var queryString = $('.myInput').val();
                                 //var endString = "&start=1&rows=10&profile=standard";
-                                var endString = "&qf=IMAGE_SIZE:large&qf=IMAGE_SIZE:extra_large&reusability=open";
+                                var endString = "&qf=SOUND_HQ:true&reusability=open";
                                 $.getJSON(startString + queryString + endString, function (data) {
                                     var items = [];
                                     console.log(data);
