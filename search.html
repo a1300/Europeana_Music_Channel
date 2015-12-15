@@ -57,7 +57,7 @@
         </nav>
 
         <style>
-            body div {
+            body main div {
                 border: white 0.5px solid;
                 margin: 10px;
                 border-radius: 2px;
@@ -122,7 +122,7 @@
                                         $.each(data.items, function () {
                                             $("#meineListe2").append("<div>");
 
-                                            $("#meineListe2").append("<div style='border: white'>" + this.title
+                                            $("#meineListe2").append("<div>" + this.title
                                                 + "<br>"
                                                 + "Country: " + this.country[0]
                                                 + "<br>"
@@ -131,9 +131,6 @@
                                                 + "<a href='" + this.guid + "'>link</a>"
                                                 + "</div>"
                                             );
-                                            
-
-                                            
                                         });
                                     } else {
 
@@ -151,13 +148,22 @@
                                 var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
                                 var queryString = $('.myInput').val();
                                 //var endString = "&start=1&rows=10&profile=standard";
-                                var endString = "&qf=IMAGE_SIZE:large&qf=IMAGE_SIZE:extra_large&reusability=open";
+                                var endString = "&reusability=open";
                                 $.getJSON(startString + queryString + endString, function (data) {
                                     var items = [];
                                     console.log(data);
                                     if (data.success) {
                                         $.each(data.items, function () {
-                                            $("#meineListe2").append("<li>" + this.title + "</li>");
+                                            $("#meineListe2").append("<div>" + this.title
+                                                + "<br>"
+                                                + "Country: " + this.country[0]
+                                                + "<br>"
+                                                + "Data Provider: " + this.dataProvider[0]
+                                                + "<br>"
+                                                + "<a href='" + this.guid + "'>Link</a>"
+                                                + "<br>"
+                                                + "<a href='" + this.rights + "'>Right</a>"
+                                                + "</div>");
                                         });
                                     } else {
 
