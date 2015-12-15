@@ -188,7 +188,12 @@
                                     console.log(data);
                                     if (data.success) {
                                         $.each(data.items, function () {
-                                            $("#meineListe2").append("<li>" + this.title + "</li>");
+                                            $("#meineListe2").append("<div>" + this.title
+                                                + "<br>"
+                                                + "Data Provider: " + this.dataProvider[0]
+                                                + "<br>"
+                                                + "<a href='" + this.guid + "'>Link</a>"
+                                                + "</div>");
                                         });
                                     } else {
 
