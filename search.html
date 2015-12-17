@@ -143,6 +143,25 @@
                             break;
                         case "Royalty Free":
                             if ($('.myInput').val() != "") {
+                            	
+                            	console.log($('.myInput').val());
+                                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
+                                var queryString = $('.myInput').val();
+                                var endString = "&start=1&rows=10&profile=standard&reusability=open";
+                                $.getJSON(startString + queryString + endString, function (data) {
+                                    var items = [];
+                                    console.log(data);
+                                    if (data.success) {
+                                        $.each(data.items, function () {
+                                            $("#meineListe2").append("<li>" + this.title + "</li>");
+                                        });
+                                    } else {
+
+                                    }
+                                });
+                                
+                                //setting input form to ""
+                                $('.myInput').val("");
                                 
                                 console.log($('.myInput').val());
                                 var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
