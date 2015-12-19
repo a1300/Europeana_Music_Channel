@@ -86,8 +86,12 @@
             <input type="radio" name="group1" value="Genre">Genre<br>
         </form>
 
+
+
         <h3>Results</h3>
         <ul id="meineListe2"></ul>
+
+		<button type="button" class="buttonRefresh">Results refresh</button>
 
 
 
@@ -103,7 +107,7 @@
     			});
   				  
   				 
-
+				
                 $('body').on("click", ".myButton", function () {
 
                     switch ($('[type="radio"]:checked').val()) {
@@ -226,7 +230,12 @@
                         default:
                             //normal search without specification
                     }
-                });
+                });	
+				$('.buttonRefresh').click(function() {
+    					location.reload();
+				});
+
+
 
             });
         </script>
