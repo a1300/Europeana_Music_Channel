@@ -73,26 +73,71 @@
         
         
         <form>
-            <div class="single-field">
-                <label for="Name">Name:</label>
-                <input id="inputText" class="myInput" name="Name" type="text" style=" color: black" />
+            
+            <div class="search">
+           	
+        	    <div class="single-field">
+           		
+           			<div id="single-field" style="float: left; width: 200px;">
+		                <label for="Name">Name:</label>
+    		            <input id="inputText" class="myInput" name="Name" type="text" style=" color: black" />
+           			</div>	
+           
+           		 	<div id="single-field" style="float: left; width: 100px;">
+           				<label> Case:</label>
+         		   		<input type="radio" name="group1" value="Title" checked="checked">Title<br>
+         		 		<input type="radio" name="group1" value="Royalty Free">Royalty Free<br>
+            			<input type="radio" name="group1" value="Genre">Genre<br>
+        			</div>
+           
+        		</div>   
+        		
+        		
+       	<div class="Filters">
+	   			
+   			   	<div class="Filters">
+   	       	   		<button id="filterButton" type="button" class="buttonFilter">Filters</button>
+				</div>
+   		       	
+   		       	<div class="radios">
+	   		    	
+           			<div id="language" style="float: left; width: 100px;">
+   						<br/>
+        	   			<label > Language:</label>	
+            			<input type="radio" name="group2" value="english" >English<br>
+           				<input type="radio" name="group2" value="german">German<br>
+            			<input type="radio" name="group2" value="spanish">Spanish<br>
+            			<input type="radio" name="group2" value="french">French<br>
+    				</div>	
+           	
+           			<div id="country" style="float: left; width: 100px;">
+           				<br/>
+        	   			<label > country:</label>
+        	   			
+            			<input type="radio" name="group2" value="germany">Germany<br>
+           				<input type="radio" name="group2" value="austria">Austria<br>
+            			<input type="radio" name="group2" value="france">France<br>
+            			<input type="radio" name="group2" value="spain">Spain<br>
+    				</div>    
+          	 	</div>
             </div>
+        </div>
+        
+            <br/><br/><br/><br/><br/><br/><br/>
+            		
             <button type="button" class="myButton">Search</button>
-
-            <br />
-            <br />
-            <input type="radio" name="group1" value="Title" checked="checked">Title<br>
-            <input type="radio" name="group1" value="Royalty Free">Royalty Free<br>
-            <input type="radio" name="group1" value="Genre">Genre<br>
+                    
         </form>
 
-
-
+		<hr>
+        
         <h3>Results</h3>
         <ul id="meineListe2"></ul>
 
 		<button type="button" class="buttonRefresh">Results refresh</button>
 
+
+<!--for the filters if we don't use them we show every information available.-->
 
 
         <script>
@@ -106,8 +151,12 @@
        					 $(this).css("background-color", "#ffffff");
     			});
   				  
-  				 
-				
+  				$(".radios").hide();
+  				
+  				$("#filterButton").click(function(){
+       			$(".radios").toggle();
+				});
+				 
                 $('body').on("click", ".myButton", function () {
 
                     switch ($('[type="radio"]:checked').val()) {
@@ -181,6 +230,8 @@
                                             $("#meineListe2").append("<div>" + this.title
                                                 + "<br>"
                                                 + "Country: " + this.country[0]
+                                                + "<br>"
+                                                +"Language: " + this.language[0]
                                                 + "<br>"
                                                 + "Data Provider: " + this.dataProvider[0]
                                                 + "<br>"
