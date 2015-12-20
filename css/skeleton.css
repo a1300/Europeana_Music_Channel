@@ -268,13 +268,11 @@ a:hover, a:active, a:focus {
 }
 
 a:link, a:visited {
-	color: #242731;
+	color: #b9cef4;
 	text-decoration: none;
-	}
-
-#sitenav{
-border-bottom: 1px solid;
+	border-bottom: 1px solid;
 }
+
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
