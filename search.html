@@ -120,6 +120,10 @@
        					 $(this).css("background-color", "#ffffff");
     			});
   				  
+  				  
+    				    $("#language").hide();
+    				    $("#country").hide();
+ 				  
   				  $("#filterButton").click(function(){
     				    $("#language").toggle();
     				    $("#country").toggle();
@@ -171,7 +175,7 @@
                                 var queryString = $('.myInput').val();
                                 //var endString = "&start=1&rows=10&profile=standard";
                                 var endString = "&reusability=open";
-                                
+                               /* 
                 	            var endString2="";
                                 if ([type="radioLanguage"]:checked=true){
                                  switch ($('[type="radioLanguage"]:checked').val()) {
@@ -198,7 +202,7 @@
 									case "italy":
     	                         	 	endString3 = "italy";
                              		break;
-                             	} 
+                             	} */
                              	//I was investigating and the country filter has a bug in the europeana api so ... we can't do nothigng :(  
                              	// https://groups.google.com/forum/?pli=1#!topic/europeanaapi/s0C56usQx-o
 	                
