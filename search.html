@@ -59,34 +59,25 @@
 	<main>
 		<form>
             
-            <div class="search">
-           	
-        	    <div class="single-field">
-           		
-           			<div id="single-field" style="float: left; width: 200px;">
+    <div class="search">
+           	   		
+        			<div id="single-field" style="float: left; width: 200px;">
 		                <label for="Name">Name:</label>
     		            <input id="inputText" class="myInput" name="Name" type="text" style=" color: black" />
            			</div>	
            
-           		 	<div id="single-field" style="float: left; width: 100px;">
+           		 	<div id="single-field" style="float: left; width: 110px;">
            				<label> Case:</label>
-         		   		<input type="radio" name="group1" value="Title" checked="checked">Title<br>
-         		 		<input type="radio" name="group1" value="Royalty Free">Royalty Free<br>
-            			<input type="radio" name="group1" value="Genre">Genre<br>
+         		   		<input type="radio" name="group1" value="Title" checked="checked">	Title<br>
+         		 		<input type="radio" name="group1" value="Royalty Free">				Royalty Free<br>
+            			<input type="radio" name="group1" value="Genre">					Genre<br>
         			</div>
-           
-        		</div>   
-        		
-        		
-       	<div class="Filters">
-	   			
-   			   	<div class="Filters">
-   	       	   		<button id="filterButton" type="button" class="buttonFilter">Filters</button>
-				</div>
-   		       	
-   		       	<div class="radios">
-	   		    	
-           			<div id="language" style="float: left; width: 100px;">
+        
+    				<div class="Filters">
+   		       	   		<button id="filterButton" type="button" class="buttonFilter">Filters</button>
+					</div> 
+    	
+           			<div id="language" class="language" style="float: left; width: 110px;">
    						<br/>
         	   			<label > Language:</label>	
             			<input type="radio" name="group2" value="english" >English<br>
@@ -94,22 +85,19 @@
             			<input type="radio" name="group2" value="italian">Italian<br>
             			<input type="radio" name="group2" value="french">French<br>
     				</div>	
-           	
-           			<div id="country" style="float: left; width: 100px;">
+           		
+           		
+           			<div id="country" class="country" style="float: left; width: 110px;">
            				<br/>
-        	   			<label > country:</label>
-        	   			
+        	   			<label > Country:</label>
             			<input type="radio" name="group3" value="germany">Germany<br>
            				<input type="radio" name="group3" value="austria">Austria<br>
             			<input type="radio" name="group3" value="france">France<br>
             			<input type="radio" name="group3" value="italy">Italy<br>
     				</div>    
-          	 	</div>
-            </div>
-        </div>
-        
+     </div>
+
             <br/><br/><br/><br/><br/><br/><br/>
-            		
             <button type="button" class="myButton">Search</button>
                     
         </form>
@@ -121,28 +109,23 @@
 
 		<button type="button" class="buttonRefresh">Results refresh</button>
 
-
-<!--for the filters if we don't use them we show every information available.-->
-
-
         <script>
             $(document).ready(function () {
-
 
             	$("#inputText").focus(function(){
     				    $(this).css("background-color", "#cccccc");
   				});
+  				
   				$("inputText").blur(function(){
        					 $(this).css("background-color", "#ffffff");
     			});
   				  
-  				//Filter section hiding
-  				$(".radios").hide();
-  				//Filter toggle to show and hide filters
-  				$("#filterButton").click(function(){
-       			$(".radios").toggle();
-				});
-				 
+  				  $("#filterButton").click(function(){
+    				    $("#language").toggle();
+    				    $("#country").toggle();
+ 				   });
+  				  
+
                 $('body').on("click", ".myButton", function () {
 
                     switch ($('[type="radio"]:checked').val()) {
@@ -172,15 +155,14 @@
                                                 + "</div>"
                                             );
                                         });
-                                    } else {
-
-                                    }
+                                    } 
                                 });
                                 
                                 //setting input form to ""
                                 $('.myInput').val("");
                             }
                             break;
+                            
                         case "Royalty Free":
                             if ($('.myInput').val() != "") {
                             	
@@ -190,8 +172,7 @@
                                 //var endString = "&start=1&rows=10&profile=standard";
                                 var endString = "&reusability=open";
                                 
-                                /* can't touch this (please don't delete this, is part of my experiment)
-                                var endString2="";
+                	            var endString2="";
                                 if ([type="radioLanguage"]:checked=true){
                                  switch ($('[type="radioLanguage"]:checked').val()) {
                     			    case "english":
@@ -202,6 +183,7 @@
     	                         	 	endString2 = "it";
                              	 	case "french":
 	                             	 	endString2 = "fr";
+	                            	break;
 	                            }
                              
                              	var endString3= ""; 
@@ -215,12 +197,15 @@
 	                             	 	endString3 = "france";
 									case "italy":
     	                         	 	endString3 = "italy";
+                             		break;
                              	} 
-	                */
-                                $.getJSON(startString + queryString + endString + , function (data) {
+                             	//I was investigating and the country filter has a bug in the europeana api so ... we can't do nothigng :(  
+                             	// https://groups.google.com/forum/?pli=1#!topic/europeanaapi/s0C56usQx-o
+	                
+                                $.getJSON(startString + queryString + endString, function (data) {
                                     var items = [];
                                     console.log(data);
-                                    if (data.success) {
+                                    if (data.success ) {
                                         $.each(data.items, function () {
                                             $("#meineListe2").append("<div>" + this.title
                                                 + "<br>"
@@ -235,9 +220,7 @@
                                                 + "<a href='" + this.rights + "'>Right</a>"
                                                 + "</div>");
                                         });
-                                    } else {
-
-                                    }
+                                    } 
                                 });
 
                                 //setting input form to ""
@@ -277,11 +260,11 @@
                             //normal search without specification
                     }
                 });	
+				
+				
 				$('.buttonRefresh').click(function() {
     					location.reload();
 				});
-
-
 
             });
         </script>
