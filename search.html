@@ -91,7 +91,7 @@
         	   			<label > Language:</label>	
             			<input type="radio" name="group2" value="english" >English<br>
            				<input type="radio" name="group2" value="german">German<br>
-            			<input type="radio" name="group2" value="spanish">Spanish<br>
+            			<input type="radio" name="group2" value="italian">Italian<br>
             			<input type="radio" name="group2" value="french">French<br>
     				</div>	
            	
@@ -99,10 +99,10 @@
            				<br/>
         	   			<label > country:</label>
         	   			
-            			<input type="radio" name="group2" value="germany">Germany<br>
-           				<input type="radio" name="group2" value="austria">Austria<br>
-            			<input type="radio" name="group2" value="france">France<br>
-            			<input type="radio" name="group2" value="spain">Spain<br>
+            			<input type="radio" name="group3" value="germany">Germany<br>
+           				<input type="radio" name="group3" value="austria">Austria<br>
+            			<input type="radio" name="group3" value="france">France<br>
+            			<input type="radio" name="group3" value="italy">Italy<br>
     				</div>    
           	 	</div>
             </div>
@@ -136,8 +136,9 @@
        					 $(this).css("background-color", "#ffffff");
     			});
   				  
+  				//Filter section hiding
   				$(".radios").hide();
-  				
+  				//Filter toggle to show and hide filters
   				$("#filterButton").click(function(){
        			$(".radios").toggle();
 				});
@@ -153,6 +154,7 @@
                                 var queryString = $('.myInput').val();
                                 //var endString = "&start=1&rows=10&profile=standard";
                                 var endString = "&qf=SOUND_HQ:true&reusability=open";
+                                //here should come the ifs for the filters
                                 $.getJSON(startString + queryString + endString, function (data) {
                                     var items = [];
                                     console.log(data);
@@ -182,32 +184,40 @@
                         case "Royalty Free":
                             if ($('.myInput').val() != "") {
                             	
-                            	/*
-                            	console.log($('.myInput').val());
-                                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
-                                var queryString = $('.myInput').val();
-                                var endString = "&start=1&rows=10&profile=standard&reusability=open";
-                                $.getJSON(startString + queryString + endString, function (data) {
-                                    var items = [];
-                                    console.log(data);
-                                    if (data.success) {
-                                        $.each(data.items, function () {
-                                            $("#meineListe2").append("<li>" + this.title + "</li>");
-                                        });
-                                    } else {
-
-                                    }
-                                });
-                                
-                                //setting input form to ""
-                                //$('.myInput').val("");
-                                */
                                 console.log($('.myInput').val());
                                 var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
                                 var queryString = $('.myInput').val();
                                 //var endString = "&start=1&rows=10&profile=standard";
                                 var endString = "&reusability=open";
-                                $.getJSON(startString + queryString + endString, function (data) {
+                                
+                                /* can't touch this (please don't delete this, is part of my experiment)
+                                var endString2="";
+                                if ([type="radioLanguage"]:checked=true){
+                                 switch ($('[type="radioLanguage"]:checked').val()) {
+                    			    case "english":
+                    			    	endString2 = "en";
+                             	 	case "german":
+        	                     	 	endString2 = "de";
+                             	 	case "italian":
+    	                         	 	endString2 = "it";
+                             	 	case "french":
+	                             	 	endString2 = "fr";
+	                            }
+                             
+                             	var endString3= ""; 
+                                if ([type="radioCountry"]:checked=true){
+                                 switch ($('[type="radioCountry"]:checked').val()) {
+                    			    case "germany":
+                    			    	endString3 = "germany";
+                             	 	case "austria":
+        	                     	 	endString3 = "austria";
+                             	 	case "france":
+	                             	 	endString3 = "france";
+									case "italy":
+    	                         	 	endString3 = "italy";
+                             	} 
+	                */
+                                $.getJSON(startString + queryString + endString + , function (data) {
                                     var items = [];
                                     console.log(data);
                                     if (data.success) {
