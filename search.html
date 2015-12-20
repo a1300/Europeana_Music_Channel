@@ -73,6 +73,7 @@
         
         
         <form>
+<<<<<<< HEAD
             
     <div class="search">
            	   		
@@ -113,17 +114,33 @@
      </div>
 
             <br/><br/><br/><br/><br/><br/><br/>
+=======
+            <div class="single-field">
+                <label for="Name">Name:</label>
+                <input id="inputText" class="myInput" name="Name" type="text" style=" color: black" />
+            </div>
+>>>>>>> parent of f89f894... Filters
             <button type="button" class="myButton">Search</button>
-                    
+
+            <br />
+            <br />
+            <input type="radio" name="group1" value="Title" checked="checked">Title<br>
+            <input type="radio" name="group1" value="Royalty Free">Royalty Free<br>
+            <input type="radio" name="group1" value="Genre">Genre<br>
         </form>
 
-		<hr>
-        
+
+
         <h3>Results</h3>
         <ul id="meineListe2"></ul>
 
 		<button type="button" class="buttonRefresh">Results refresh</button>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> parent of f89f894... Filters
         <script>
             $(document).ready(function () {
 
@@ -135,12 +152,17 @@
        					 $(this).css("background-color", "#ffffff");
     			});
   				  
+<<<<<<< HEAD
   				  $("#filterButton").click(function(){
     				    $("#language").toggle();
     				    $("#country").toggle();
  				   });
   				  
 
+=======
+  				 
+				
+>>>>>>> parent of f89f894... Filters
                 $('body').on("click", ".myButton", function () {
 
                     switch ($('[type="radio"]:checked').val()) {
@@ -225,8 +247,6 @@
                                             $("#meineListe2").append("<div>" + this.title
                                                 + "<br>"
                                                 + "Country: " + this.country[0]
-                                                + "<br>"
-                                                +"Language: " + this.language[0]
                                                 + "<br>"
                                                 + "Data Provider: " + this.dataProvider[0]
                                                 + "<br>"
