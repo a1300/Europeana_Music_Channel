@@ -232,6 +232,26 @@ $('body').on("click", ".myButton", function () {
 				}//end of the first  if ($('.myInput').val() != "") 
                             break;
                 
+                       /* 
+                             	var endString3= ""; 
+                                if ([type="radioCountry"]:checked=true){
+                                 switch ($('[type="radioCountry"]:checked').val()) {
+                    			    case "germany":
+                    			    	endString3 = "germany";
+                             	 	case "austria":
+        	                     	 	endString3 = "austria";
+                             	 	case "france":
+	                             	 	endString3 = "france";
+									case "italy":
+    	                         	 	endString3 = "italy";
+                             		break;
+                             	} */
+                             	//I was investigating and the country filter has a bug in the europeana api so ... 
+                             	//we can't do nothigng :(
+                             	//This should be the code for the if f0r coutry  
+                             	// https://groups.google.com/forum/?pli=1#!topic/europeanaapi/s0C56usQx-o
+	                     
+	            
 		case "Genre":
         	if ($('.myInput').val() != "") {
             	console.log($('.myInput').val());
