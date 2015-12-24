@@ -68,8 +68,8 @@
            
            		 	<div id="single-field" style="float: left; width: 110px;">
            				<label> Case:</label>
-         		   		<input type="radio" name="group1" value="Title" >	Title<br>
-         		 		<input type="radio" name="group1" value="Royalty Free" checked="checked">				Royalty Free<br>
+         		   		<input type="radio" name="group1" value="Title" checked="checked">	Title<br>
+         		 		<input type="radio" name="group1" value="Royalty Free" >				Royalty Free<br>
             			<input type="radio" name="group1" value="Genre">					Genre<br>
         			</div>
         
@@ -109,95 +109,88 @@
 
 		<button type="button" class="buttonRefresh">Results refresh</button>
 
-        <script>
-            $(document).ready(function () {
+<script>
+$(document).ready(function () {
 
-            	$("#inputText").focus(function(){
-    				    $(this).css("background-color", "#cccccc");
-  				});
+$("#inputText").focus(function(){
+	$(this).css("background-color", "#cccccc");
+});
   				
-  				$("inputText").blur(function(){
-       					 $(this).css("background-color", "#ffffff");
-    			});
+$("inputText").blur(function(){
+	$(this).css("background-color", "#ffffff");
+});
   				  
   				  
-    				    $("#language").hide();
-    				    $("#country").hide();
+$("#language").hide();
+$("#country").hide();
  				  
-  				  $("#filterButton").click(function(){
-    				    $("#language").toggle();
-    				    $("#country").toggle();
- 				   });
+$("#filterButton").click(function(){
+	$("#language").toggle();
+	$("#country").toggle();
+});
   				  
 
-                $('body').on("click", ".myButton", function () {
+$('body').on("click", ".myButton", function () {
 
-                    switch ($('[type="radio"]:checked').val()) {
-                        case "Title":
-                            if ($('.myInput').val() != "") {
-                                
-                                console.log($('.myInput').val());
-                                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
-                                var queryString = $('.myInput').val();
-                                //var endString = "&start=1&rows=10&profile=standard";
-                                var endString = "&qf=SOUND_HQ:true&reusability=open";
-                                //here should come the ifs for the filters
-                                $.getJSON(startString + queryString + endString, function (data) {
-                                    var items = [];
-                                    console.log(data);
-                                    if (data.success) {
-                                        $.each(data.items, function () {
-                                            $("#meineListe2").append("<div>");
-
-                                            $("#meineListe2").append("<div>" + this.title
+	switch ($('[type="radio"]:checked').val()) {
+		case "Title":
+        	if ($('.myInput').val() != "") {
+            	console.log($('.myInput').val());
+                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
+				var queryString = $('.myInput').val();
+                //var endString = "&start=1&rows=10&profile=standard";
+                var endString = "&qf=SOUND_HQ:true&reusability=open";
+                //here should come the ifs for the filters
+                $.getJSON(startString + queryString + endString, function (data) {
+                	var items = [];
+                	console.log(data);
+                	if (data.success) {
+                		$.each(data.items, function () {
+                        	$("#meineListe2").append("<div>");
+                            $("#meineListe2").append("<div>" + this.title
                                                 + "<br>"
                                                 + "Country: " + this.country[0]
                                                 + "<br>"
                                                 + "Data Provider: " + this.dataProvider[0]
                                                 + "<br>"
                                                 + "<a href='" + this.guid + "'>link</a>"
-                                                + "</div>"
-                                            );
-                                        });
-                                    } 
-                                });
+                                                + "</div>");
+                                        
+                        });
+					} 
+                });
                                 
                                 //setting input form to ""
-                                $('.myInput').val("");
-                            }
-                            break;
+                $('.myInput').val("");
+            }
+            break;
                             
-                        case "Royalty Free":
-                            if ($('.myInput').val() != "") {
-                            	
-                                console.log($('.myInput').val());
-                                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
-                                var queryString = $('.myInput').val();
-                                //var endString = "&start=1&rows=10&profile=standard";
-                                var endString = "&reusability=open";
-                               
-                	            var endString2="";
-                                if ($('[type="radio"]:checked').val()){
-                               
-                                 switch ($('[type="radioLanguage"]:checked').val()) {
-                    			    case "english":
-                    			    	endString2 = "&language=en";
-                             	 	case "german":
-        	                     	 	endString2 = "&language=de";
-                             	 	case "italian":
-    	                         	 	endString2 = "&language=it";
-                             	 	case "french":
-	                             	 	endString2 = "&language=fr";
-	                            	break;
+        case "Royalty Free":
+        	if ($('.myInput').val() != "") {
+            	console.log($('.myInput').val());
+                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
+                var queryString = $('.myInput').val();
+                //var endString = "&start=1&rows=10&profile=standard";
+                var endString = "&reusability=open";
+                
+                var endString2="";
+                if ($('[type="radio"]:checked').val()){
+                	switch ($('[type="radio"]:checked').val()) {
+                    	case "english":
+                    		endString2 = "&language=en";
+                        case "german":
+        	            	endString2 = "&language=de";
+                        case "italian":
+    	                	endString2 = "&language=it";
+                        case "french":
+	                    	endString2 = "&language=fr";
 	                            
-	                            
-	                             $.getJSON(startString + queryString + endString + endString2, function (data) {
-                                    var items = [];
-                                    console.log(data);
-                                    if (data.success ) {
-                                    
-                                        $.each(data.items, function () {
-                                            $("#meineListe2").append("<div>" + this.title
+	                $.getJSON(startString + queryString + endString + endString2, function (data) {
+                        var items = [];
+                        console.log(data);
+                        if (data.success ) {
+                        	$.each(data.items, function () {
+                            	$("#meineListe2").append("<div>" + this.title
                                                 + "<br>"
                                                 + "Country: " + this.country[0]
                                                 + "<br>"
@@ -209,71 +202,47 @@
                                                 + "<br>"
                                                 + "<a href='" + this.rights + "'>Right</a>"
                                                 + "</div>");
-                                        });
-                                    } 
-	                
-	                            }
-	                            
-	                            /* 
-                             	var endString3= ""; 
-                                if ([type="radioCountry"]:checked=true){
-                                 switch ($('[type="radioCountry"]:checked').val()) {
-                    			    case "germany":
-                    			    	endString3 = "germany";
-                             	 	case "austria":
-        	                     	 	endString3 = "austria";
-                             	 	case "france":
-	                             	 	endString3 = "france";
-									case "italy":
-    	                         	 	endString3 = "italy";
-                             		break;
-                             	} */
-                             	//I was investigating and the country filter has a bug in the europeana api so ... 
-                             	//we can't do nothigng :(
-                             	//This should be the code for the if f0r coutry  
-                             	// https://groups.google.com/forum/?pli=1#!topic/europeanaapi/s0C56usQx-o
-	                     
-	                            
-	                            else{
-                                  $.getJSON(startString + queryString + endString, function (data) {
-                                    var items = [];
-                                    console.log(data);
-                                    if (data.success ) {
-                                    
-                                        $.each(data.items, function () {
-                                            $("#meineListe2").append("<div>" + this.title
-                                                + "<br>"
-                                                + "Country: " + this.country[0]
-                                                + "<br>"
-                                                +"Language: " + this.language[0]
-                                                + "<br>"
-                                                + "Data Provider: " + this.dataProvider[0]
-                                                + "<br>"
-                                                + "<a href='" + this.guid + "'>Link</a>"
-                                                + "<br>"
-                                                + "<a href='" + this.rights + "'>Right</a>"
-                                                + "</div>");
-                                        });
-                                    } 
-                            }    });
-
-                                //setting input form to ""
-                                $('.myInput').val("");
-                            }
+                            });
+                    	} 
+	                });
+	            }else{
+                 	$.getJSON(startString + queryString + endString, function (data) {
+                    	var items = [];
+                        console.log(data);
+                        if (data.success ) {
+                        	$.each(data.items, function () {
+                            	$("#meineListe2").append("<div>" + this.title
+                                	+ "<br>"
+                                	+ "Country: " + this.country[0]
+                                    + "<br>"
+                                    +"Language: " + this.language[0]
+                                    + "<br>"
+                                    + "Data Provider: " + this.dataProvider[0]
+                                    + "<br>"
+                                    + "<a href='" + this.guid + "'>Link</a>"
+                                    + "<br>"
+                                    + "<a href='" + this.rights + "'>Right</a>"
+                                    + "</div>");
+                            });
+                        } 
+					});
+		            //setting input form to ""
+        			$('.myInput').val("");
+                                
+				}//end of the first  if ($('.myInput').val() != "") 
                             break;
-                        case "Genre":
-                            if ($('.myInput').val() != "") {
-                                
-                                
-                                console.log($('.myInput').val());
-                                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
-                                var queryString = $('.myInput').val();
-                                //var endString = "&start=1&rows=10&profile=standard";
-                                var endString = "&qf=IMAGE_SIZE:large&qf=IMAGE_SIZE:extra_large&reusability=open";
-                                $.getJSON(startString + queryString + endString, function (data) {
-                                    var items = [];
-                                    console.log(data);
-                                    if (data.success) {
+                
+		case "Genre":
+        	if ($('.myInput').val() != "") {
+            	console.log($('.myInput').val());
+                var startString = "http://www.europeana.eu/api/v2/search.json?wskey=iiiHVMLBw&query=";
+                var queryString = $('.myInput').val();
+                //var endString = "&start=1&rows=10&profile=standard";
+                var endString = "&qf=IMAGE_SIZE:large&qf=IMAGE_SIZE:extra_large&reusability=open";
+                $.getJSON(startString + queryString + endString, function (data) {
+                	var items = [];
+                	console.log(data);
+                	if (data.success) {
                                         $.each(data.items, function () {
                                             $("#meineListe2").append("<div>" + this.title
                                                 + "<br>"
