@@ -69,7 +69,7 @@
            		 	<div id="single-field" style="float: left; width: 110px;">
            				<label> Case:</label>
          		   		<input type="radio" name="group1" value="Title" checked="checked">	Title<br>
-         		 		<input type="radio" name="group1" value="Royalty Free" >				Royalty Free<br>
+         		 		<input type="radio" name="group1" value="Royalty Free" >			Royalty Free<br>
             			<input type="radio" name="group1" value="Genre">					Genre<br>
         			</div>
         
@@ -271,26 +271,21 @@ $('body').on("click", ".myButton", function () {
                                                 + "<a href='" + this.guid + "'>Link</a>"
                                                 + "</div>");
                                         });
-                                    } else {
+                    } 
+                });
 
-                                    }
-                                });
-
-                                //setting input form to ""
-                                $('.myInput').val("");
-                            }
-                        default:
-                            //normal search without specification
-                    }
-                });	
-				
-				
-				$('.buttonRefresh').click(function() {
-    					location.reload();
-				});
-
-            });
-        </script>
+                //setting input form to ""
+                $('.myInput').val("");
+            }
+            default:
+            //normal search without specification
+        }
+});					
+$('.buttonRefresh').click(function() {
+	location.reload();
+});
+});        
+</script>
 
 	</main>
 
