@@ -13,3 +13,6 @@ hs_err_pid*
 
 # Web.config from VisualStudio
 Web.config
+
+# Tomcat logs
+apache-tomcat-9.0.0/logs/**
