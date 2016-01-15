@@ -154,7 +154,8 @@
                                                 + "Data Provider: " + this.dataProvider[0]
                                                 + "<br>"
                                                 + "<a href='" + this.guid + "'>link</a>"
-                                                + "</div>");
+                                                + "<hr>"
+                                                +"</div>");
                                 });
 							} 
                 		});
@@ -173,7 +174,7 @@
                 
 		                var endString2="";
 		                if ($('[type="checkbox"]:checked').val()=="english"){
-		                		endString2 = endString2+"&language=en";
+		                		endString2 = endString2+"&language==en";
 		                }
 		                if ($('[type="checkbox"]:checked').val()=="german"){
 		                		endString2 = endString2+"&language=de";
@@ -184,6 +185,26 @@
 		                if ($('[type="checkbox"]:checked').val()=="french"){
 		                		endString2 = endString2+"&language=fr";
 		                }
+		                      
+		                   /*   
+		                      
+		                         
+		                if ($('[type="checkbox"]:checked').val()=="germany"){
+		                		endString2 = endString2+"&country:"germany"";
+		                }
+		                if ($('[type="checkbox"]:checked').val()=="austria"){
+		                		endString2 = endString2+"&country:"austria"";
+		                }
+		                if ($('[type="checkbox"]:checked').val()=="france"){
+		                		endString2 = endString2+"&country:"france""; 
+		                }
+		                if ($('[type="checkbox"]:checked').val()=="italy"){
+		                		endString2 = endString2+"&country="italy"";
+		                }      
+		                     */ 
+		                      
+		                      
+		                      
 		                       
 			            $.getJSON(startString + queryString + endString + endString2, function (data) {
 		                    var items = [];
